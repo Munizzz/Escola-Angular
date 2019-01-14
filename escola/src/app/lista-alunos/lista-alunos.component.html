@@ -1,0 +1,49 @@
+<div >
+
+  <label>Nome:</label><br/>
+  <input type="text" [(ngModel)] = "aluno.nome"><br/>
+  <label>Data de Nascimento : </label><br/>
+  <input type="text" [(ngModel)] = "aluno.data_nascimento"><br/>
+  <label>Série de Ingresso (1° ao 9° ano):</label><br/>
+  <input type="text" [(ngModel)] = "aluno.serie"><br/>
+  
+  <h4><label>Endereço : </label></h4>
+  <label>CEP </label><br/>
+  <input type="text" [(ngModel)] = "aluno.cep"> <button type="button" (click)="consultaCEP()" >Consultar CEP</button> <br/>
+  <label>Rua:</label><br/>
+  <input type="text" [(ngModel)] = "aluno.rua"><br/>
+  <label>Número: </label><br/>
+  <input type="text" [(ngModel)] = "aluno.numero"><br/>
+  <label>Complemento:</label><br/>
+  <input type="text" [(ngModel)] = "aluno.complemento" ><br/>
+  <label>Bairro: </label><br/>
+  <input type="text" [(ngModel)] = "aluno.bairro"><br/>
+  <label>Cidade:</label><br/>
+  <input type="text" [(ngModel)] = "aluno.cidade"><br/>
+  <label>Estado: </label><br/>
+  <input type="text" [(ngModel)] = "aluno.estado"><br/>
+  
+  <h4><label>Dados da Mãe: </label></h4>
+  <label>Nome da mãe:</label><br/>
+  <input type="text" [(ngModel)] = "aluno.nome_mae"><br/>
+  <label>CPF da mãe: </label><br/>
+  <input type="text" [(ngModel)] = "aluno.cpf_mae"><br/>
+  <label>Data preferencial para pagamento da mensalidade: </label><br/>
+  <label>Dia: </label>
+  <input type="text" [(ngModel)] = "aluno.data_pagamento"><br/>
+  
+  
+  
+  <button type="button" (click)="consultar()" >Consultar</button> 
+  <button type="button" (click)="incluir()" >Incluir</button>
+  </div>
+
+<div >
+  <ul>
+    <li *ngFor="let aluno of alunos">
+      {{aluno.nome}} nascido em {{aluno.data_nascimento}} está no {{aluno.serie}}° Ano do ensino fundamental.<br/>
+      Mora em {{aluno.rua}} n° {{aluno.numero}}, {{aluno.bairro}} - {{aluno.cidade}}/{{aluno.estado}} - {{aluno.cep}}.<br/>
+      Filho de {{aluno.nome_mae}} de CPF {{aluno.cpf_mae}} e o pagamento da mensalidade é realizado no dia {{aluno.data_pagamento}}.<br/>
+    </li>
+  </ul>
+</div>
