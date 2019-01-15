@@ -2,9 +2,13 @@
 <div class="row col-md-6">
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group">
-          <label for="cep">CEP</label><br/>
-          <input type="text" class="form-control" id="cep" placeholder = "00000-000" [(ngModel)] = "cep.cep"> 
+      <div class="form-group" [ngClass]="{'has-error': !Vcep.valid && (Vcep.dirty || Vcep.touched)}">
+          <label for="cep"  class="control-label">CEP</label><br/>
+          <input type="text" class="form-control" placeholder = "00000-000" id="cep"
+                 name="cep" [(ngModel)] = "cep.cep" #Vcep="ngModel" required/> 
+          <span class="help-block" *ngIf="Vcep.errors && (Vcep.dirty || Vcep.touched)">
+            <ul><li *ngIf="Vcep.errors.required">O CEP é obrigatório</li></ul>
+          </span>
       </div>
     </div>
       <div class="col-md-8">
@@ -13,41 +17,62 @@
   </div>
   <div class="row">
     <div class="col-md-8">
-      <div class="form-group">
-          <label for="logradouro">Logradouro</label><br/>
-          <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" [(ngModel)] = "cep.logradouro">
+      <div class="form-group" [ngClass]="{'has-error': !log.valid && (log.dirty || log.touched)}">
+          <label for="logradouro" class="control-label">Logradouro</label><br/>
+          <input type="text" class="form-control" placeholder="Logradouro"id="logradouro"
+                 name="logradouro" [(ngModel)] = "cep.logradouro" #log="ngModel" required/>
+          <span class="help-block" *ngIf="log.errors && (log.dirty || log.touched)">
+            <ul><li *ngIf="log.errors.required">O Logradouro é obrigatório</li></ul>
+          </span>
       </div>
     </div>
     <div class="col-md-4">
-        <div class="form-group">
-            <label for="numero">Número</label><br/>
-            <input type="text" class="form-control" id="numero" placeholder="Número" [(ngModel)] = "cep.numero">
+        <div class="form-group" [ngClass]="{'has-error': !num.valid && (num.dirty || num.touched)}">
+            <label for="numero" class="control-label">Número</label><br/>
+            <input type="text" class="form-control" placeholder="Número" id="numero" 
+                    name="numero" [(ngModel)] = "cep.numero" #num="ngModel" required/>
+            <span class="help-block" *ngIf="num.errors && (num.dirty || num.touched)">
+            <ul><li *ngIf="num.errors.required">O Número é obrigatório</li></ul>
+          </span>
         </div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" >
       <label for="complemento">Complemento</label><br/>
-      <input type="text" class="form-control" id="complemento" placeholder="Complemento" [(ngModel)] = "cep.complemento">
+      <input type="text" class="form-control" placeholder="Complemento" id="complemento" 
+             name="complemento" [(ngModel)] = "cep.complemento"/>
   </div>
   <div class="row">
     <div class="col-md-6">
      
-      <div class="form-group">
-          <label for="bairro">Bairro</label><br/>
-          <input type="text" class="form-control" id="bairro" placeholder="Bairro" [(ngModel)] = "cep.bairro">
+      <div class="form-group" [ngClass]="{'has-error': !bai.valid && (bai.dirty || bai.touched)}">
+          <label for="bairro" class="control-label">Bairro</label><br/>
+          <input type="text" class="form-control" placeholder="Bairro" id="bairro" 
+                 name="bairro" [(ngModel)] = "cep.bairro" #bai="ngModel" required/>
+          <span class="help-block" *ngIf="bai.errors && (bai.dirty || bai.touched)">
+            <ul><li *ngIf="bai.errors.required">O bairro é obrigatório</li></ul>
+          </span>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="form-group">
-        <label for="cidade">Cidade</label><br/>
-        <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)] = "cep.cidade">
+      <div class="form-group" [ngClass]="{'has-error': !cidd.valid && (cidd.dirty || cidd.touched)}">
+        <label for="cidade" class="control-label">Cidade</label><br/>
+        <input type="text" class="form-control" placeholder="Cidade" id="cidade" 
+               name="cidade" [(ngModel)] = "cep.cidade" #cidd="ngModel" required/>
+        <span class="help-block" *ngIf="cidd.errors && (cidd.dirty || cidd.touched)">
+            <ul><li *ngIf="cidd.errors.required">A cidade é obrigatória</li></ul>
+          </span>
       </div>
     </div>
   </div>
   <div>
-    <div class="form-group">
-        <label for="estado">Estado</label><br/>
-        <input type="text" class="form-control" id="estado" placeholder="Estado" [(ngModel)] = "cep.estado">
+    <div class="form-group" [ngClass]="{'has-error': !uf.valid && (uf.dirty || uf.touched)}">
+        <label for="estado" class="control-label">Estado</label><br/>
+        <input type="text" class="form-control" placeholder="Estado" id="estado" 
+               name="estado" [(ngModel)] = "cep.estado" #uf="ngModel" required/>
+        <span class="help-block" *ngIf="uf.errors && (uf.dirty || uf.touched)">
+            <ul><li *ngIf="uf.errors.required">O Estado é obrigatório</li></ul>
+          </span>
     </div>
   </div>
 </div>

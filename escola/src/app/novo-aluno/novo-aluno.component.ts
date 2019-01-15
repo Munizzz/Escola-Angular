@@ -3,6 +3,7 @@ import { Aluno } from '../aluno';
 import { AlunoService } from '../aluno.service';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { defineLocale } from 'ngx-bootstrap/chronos';
+import { FormsModule } from '@angular/forms';
 
 
 

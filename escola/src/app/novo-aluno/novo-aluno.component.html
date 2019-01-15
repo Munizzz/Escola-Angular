@@ -1,111 +1,139 @@
-<div class="row col-md-6" >
- 
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-        <label for="nome">Nome</label><br/>
-        <input type="text" class="form-control" id="nome" 
-               placeholder = "Nome" [(ngModel)] = "aluno.nome"> 
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <label for="data_nascimento">Data de Nascimento</label><br/>
-        <div class="col-xs-12 col-12 col-sm-5 col-md-6 col-lg-4 form-group">
-          <input placeholder="Data de Nascimento" type="text" class="form-control" bsDatepicker #dp="bsDatepicker"  [(ngModel)] = "aluno.data_nascimento" id="data_nascimento" >
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="form-group">
-        <label for="serie">Ano</label>
-        <select
-          class="custom-select form-control" id="serie" placeholder = "Ano"  [(ngModel)] = "aluno.serie">
-          <option value=1>1°</option>
-          <option value=2>2°</option>
-          <option value=3>3°</option>
-          <option value=4>4°</option>
-          <option value=5>5°</option>
-          <option value=6>6°</option>
-          <option value=7>7°</option>
-          <option value=8>8°</option>
-          <option value=9>9°</option>
-        </select>
-      </div>
-    </div>
-  </div>
 
-  <div>
-    <h4><label>Dados da Mãe: </label></h4>
+<form #myForm="ngForm">
+  <div class="row col-md-6" >
+   
     <div class="row">
       <div class="col-md-6">
-        <div class="form-group">
-          <label for="nome_mae">Nome da mãe</label><br/>
-          <input type="text" class="form-control" id="nome_mae" 
-                  placeholder = "Nome Mãe" [(ngModel)] = "aluno.nome_mae"> 
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5">
-        <div class="form-group">
-          <label for="cpf_mae">CPF da Mãe</label><br/>
-          <input type="text" class="form-control" id="cpf_mae"
-                  placeholder = "XXX.XXX.XXX-XX"  [(ngModel)] = "aluno.cpf_mae"> 
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="form-group">
-          <label for="data_pagamento">Data de pagamento da mensalidade</label><br/>
-          <select
-            class="custom-select form-control" id="data_pagamento" placeholder = "Dia"  [(ngModel)] = "aluno.data_pagamento">
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-            <option value=6>6</option>
-            <option value=7>7</option>
-            <option value=8>8</option>
-            <option value=9>9</option>
-            <option value=10>10</option>
-            <option value=11>11</option>
-            <option value=12>12</option>
-            <option value=13>13</option>
-            <option value=14>14</option>
-            <option value=15>15</option>
-            <option value=16>16</option>
-            <option value=17>17</option>
-            <option value=18>18</option>
-            <option value=19>19</option>
-            <option value=20>20</option>
-            <option value=21>21</option>
-            <option value=22>22</option>
-            <option value=23>23</option>
-            <option value=24>24</option>
-            <option value=25>25</option>
-            <option value=26>26</option>
-            <option value=27>27</option>
-            <option value=28>28</option>
-            <option value=29>29</option>
-            <option value=30>30</option>
+        <div class="form-group" [ngClass]="{'has-error': !name.valid && (name.dirty || name.touched)}">
+          <label for="nome" class="control-label">Nome</label>
+          <input type="text" class="form-control" placeholder = "Nome" id="nome" name="nome" 
+                  [(ngModel)] = "aluno.nome" #name="ngModel" required /> 
+          <span class="help-block" *ngIf="name.errors && (name.dirty || name.touched)">
+            <ul><li *ngIf="name.errors.required">O Campo nome é obrigatório</li></ul>
+          </span>
 
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group"  [ngClass]="{'has-error': !dataN.valid && (dataN.dirty || dataN.touched)}">
+          <label for="data_nascimento" class="control-label">Data de Nascimento</label><br/>
+          <div class="col-xs-12 col-12 col-sm-5 col-md-8 col-lg-4 form-group">
+            <input  type="text" class="form-control" placeholder="Data de Nascimento" id="data_nascimento"
+                    name="data_nascimento" [(ngModel)] = "aluno.data_nascimento" #dataN="ngModel" required 
+                    bsDatepicker #dp="bsDatepicker" />
+            <span class="help-block" *ngIf="dataN.errors && (dataN.dirty || dataN.touched)">
+            <ul><li *ngIf="dataN.errors.required">Data de Nascimento é obrigatório</li></ul>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{'has-error': !ano.valid && (ano.dirty || ano.touched)}">
+          <label for="serie" class="control-label">Ano Escolar</label>
+          <select type="text" class="custom-select form-control" placeholder="Ano" id="serie" 
+                  name="serie" [(ngModel)] = "aluno.serie" #ano="ngModel" required>
+            <option value=1>1°</option>
+            <option value=2>2°</option>
+            <option value=3>3°</option>
+            <option value=4>4°</option>
+            <option value=5>5°</option>
+            <option value=6>6°</option>
+            <option value=7>7°</option>
+            <option value=8>8°</option>
+            <option value=9>9°</option>
           </select>
+          <span class="help-block" *ngIf="ano.errors && (ano.dirty || ano.touched)">
+            <ul><li *ngIf="ano.errors.required">O ano escolar é obrigatório</li></ul>
+          </span>
         </div>
       </div>
     </div>
-  </div>
-    
-    <button type="button" (click)="consultar()" class="btn btn-primary" >
-      Consultar Aluno</button>              
-    <button type="button" (click)="incluir()"   class="btn btn-primary" >
-      Incluir Aluno</button>
-</div>
 
-<app-cep></app-cep>
+    <div>
+      <h4><label>Dados da Mãe: </label></h4>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" [ngClass]="{'has-error': !mae.valid && (mae.dirty || mae.touched)}">
+            <label for="nome_mae" class="control-label">Nome da mãe</label><br/>
+            <input type="text" class="form-control" placeholder = "Nome Mãe" id="nome_mae" 
+                   name="nome_mae" [(ngModel)] = "aluno.nome_mae" #mae="ngModel" required/> 
+            <span class="help-block" *ngIf="mae.errors && (mae.dirty || mae.touched)">
+              <ul><li *ngIf="mae.errors.required">O Nome da Mãe é obrigatório</li></ul>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group" [ngClass]="{'has-error': !cpf.valid && (cpf.dirty || cpf.touched)}">
+            <label for="cpf_mae" class="control-label">CPF da Mãe</label><br/>
+            <input type="text" class="form-control" placeholder = "XXX.XXX.XXX-XX" id="cpf_mae"
+                   name="cpf_mae" [(ngModel)] = "aluno.cpf_mae" #cpf="ngModel" required/> 
+            <span class="help-block" *ngIf="cpf.errors && (cpf.dirty || cpf.touched)">
+              <ul><li *ngIf="cpf.errors.required">O CPF da Mãe é obrigatório</li></ul>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group" [ngClass]="{'has-error': !pagamento.valid && (pagamento.dirty || pagamento.touched)}">
+            <label for="data_pagamento" class="control-label">Data de pagamento da mensalidade</label><br/>
+            <select type="text" class="custom-select form-control" placeholder="Dia" id="data_pagamento" 
+                    name="data_pagamento" [(ngModel)] = "aluno.data_pagamento" #pagamento="ngModel" required>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+              <option value=6>6</option>
+              <option value=7>7</option>
+              <option value=8>8</option>
+              <option value=9>9</option>
+              <option value=10>10</option>
+              <option value=11>11</option>
+              <option value=12>12</option>
+              <option value=13>13</option>
+              <option value=14>14</option>
+              <option value=15>15</option>
+              <option value=16>16</option>
+              <option value=17>17</option>
+              <option value=18>18</option>
+              <option value=19>19</option>
+              <option value=20>20</option>
+              <option value=21>21</option>
+              <option value=22>22</option>
+              <option value=23>23</option>
+              <option value=24>24</option>
+              <option value=25>25</option>
+              <option value=26>26</option>
+              <option value=27>27</option>
+              <option value=28>28</option>
+              <option value=29>29</option>
+              <option value=30>30</option>
+
+            </select>
+            <span class="help-block" *ngIf="pagamento.errors && (pagamento.dirty || pagamento.touched)">
+              <ul><li *ngIf="pagamento.errors.required">A data de pagamento é obrigatória</li></ul>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <button type="button" (click)="consultar()" class="btn btn-primary" >
+        Consultar Aluno</button>              
+      <button type="submit" (click)="incluir()" class="btn btn-primary" [disabled]="!myForm.valid" >
+        Incluir Aluno</button>
+        
+  </div>
+  <app-cep></app-cep>
+  
+
+</form>
