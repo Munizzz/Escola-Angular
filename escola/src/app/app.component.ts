@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Aluno } from './aluno';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Escola ABC';
-
+  alunos:Array<Aluno> = [];
 }

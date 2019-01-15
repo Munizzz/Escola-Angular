@@ -1,0 +1,68 @@
+<div class="row col-md-6" >
+ 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="nome">Nome</label><br/>
+        <input type="text" class="form-control" id="nome" 
+               placeholder = "Nome" [(ngModel)] = "aluno.nome"> 
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label for="data_nascimento">Data de Nascimento</label><br/>
+        <input type="text" class="form-control" id="data_nascimento"
+               placeholder = "DD-MM-AAAA"  [(ngModel)] = "aluno.data_nascimento"> 
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="serie">Ano</label><br/>
+        <input type="text" class="form-control" id="serie" 
+               placeholder = "Ano" [(ngModel)] = "aluno.serie"> 
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4><label>Dados da Mãe: </label></h4>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nome_mae">Nome da mãe</label><br/>
+          <input type="text" class="form-control" id="nome_mae" 
+                  placeholder = "Nome Mãe" [(ngModel)] = "aluno.nome_mae"> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="cpf_mae">CPF da Mãe</label><br/>
+          <input type="text" class="form-control" id="cpf_mae"
+                  placeholder = "XXX.XXX.XXX-XX"  [(ngModel)] = "aluno.cpf_mae"> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label for="data_pagamento">Data de pagamento da mensalidade</label><br/>
+          <input type="text" class="form-control" id="data_pagamento" 
+                  placeholder = "Dia" [(ngModel)] = "aluno.data_pagamento"> 
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <button type="button" (click)="consultar()" class="btn btn-primary" >
+      Consultar Aluno</button>              
+    <button type="button" (click)="incluir()"   class="btn btn-primary" >
+      Incluir Aluno</button>
+</div>
+
+<app-cep></app-cep>
