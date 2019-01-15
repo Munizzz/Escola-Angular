@@ -4,50 +4,50 @@
     <div class="col-md-4">
       <div class="form-group">
           <label for="cep">CEP</label><br/>
-          <input type="text" class="form-control" id="cep" placeholder = "00000-000"> 
+          <input type="text" class="form-control" id="cep" placeholder = "00000-000" [(ngModel)] = "cep.cep"> 
       </div>
     </div>
       <div class="col-md-8">
-        <button type="button" class="btn btn-primary" >Consultar CEP</button>
+        <button type="button" class="btn btn-primary" (click)= "buscar()">Consultar CEP</button>
       </div>
   </div>
   <div class="row">
     <div class="col-md-8">
       <div class="form-group">
-          <label for="rua">Rua</label><br/>
-          <input type="text" class="form-control" id="rua" placeholder="Rua">
+          <label for="logradouro">Logradouro</label><br/>
+          <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" [(ngModel)] = "cep.logradouro">
       </div>
     </div>
     <div class="col-md-4">
         <div class="form-group">
             <label for="numero">Número</label><br/>
-            <input type="text" class="form-control" id="numero" placeholder="Número">
+            <input type="text" class="form-control" id="numero" placeholder="Número" [(ngModel)] = "cep.numero">
         </div>
     </div>
   </div>
   <div class="form-group">
       <label for="complemento">Complemento</label><br/>
-      <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+      <input type="text" class="form-control" id="complemento" placeholder="Complemento" [(ngModel)] = "cep.complemento">
   </div>
   <div class="row">
     <div class="col-md-6">
      
       <div class="form-group">
           <label for="bairro">Bairro</label><br/>
-          <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+          <input type="text" class="form-control" id="bairro" placeholder="Bairro" [(ngModel)] = "cep.bairro">
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <label for="cidade">Cidade</label><br/>
-        <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+        <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)] = "cep.cidade">
       </div>
     </div>
   </div>
   <div>
     <div class="form-group">
         <label for="estado">Estado</label><br/>
-        <input type="text" class="form-control" id="estado" placeholder="Estado">
+        <input type="text" class="form-control" id="estado" placeholder="Estado" [(ngModel)] = "cep.estado">
     </div>
   </div>
 </div>

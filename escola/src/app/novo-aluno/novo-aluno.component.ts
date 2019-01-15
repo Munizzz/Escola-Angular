@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Aluno } from '../aluno';
 import { AlunoService } from '../aluno.service';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+
+
+
 
 @Component({
   selector: 'app-novo-aluno',
@@ -18,19 +23,22 @@ export class NovoAlunoComponent  {
     complemento:"",
     bairro:"",
     cidade:"",
-    estado:"R",
+    estado:"",
     nome_mae:"",
     cpf_mae:"",
     data_pagamento:null,
   };
 
+
   alunos:Array<Aluno>;
   constructor(private alunoService:AlunoService){
     this.alunos = this.alunoService.alunos;
   }
+
   incluir(){
     let aluno = Object.assign({},this.aluno);
     this.alunos.push(this.aluno);
   }
-
 }
+
+
