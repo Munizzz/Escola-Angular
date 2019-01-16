@@ -38,7 +38,7 @@ export class NovoAlunoComponent  {
 
   incluir(){
     let aluno = Object.assign({},this.aluno);
-    this.alunos.push(this.aluno);
+    this.alunos.push(aluno);
   }
 }
 

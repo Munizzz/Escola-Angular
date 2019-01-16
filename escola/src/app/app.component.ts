@@ -8,5 +8,4 @@ import { Aluno } from './aluno';
 })
 export class AppComponent {
   title = 'Escola ABC';
-  alunos:Array<Aluno> = [];
 }

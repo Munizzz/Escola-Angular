@@ -15,8 +15,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-md-12">
         <div class="form-group"  [ngClass]="{'has-error': !dataN.valid && (dataN.dirty || dataN.touched)}">
@@ -126,12 +124,15 @@
         </div>
       </div>
     </div>
-      
+    
+
       <button type="button" (click)="consultar()" class="btn btn-primary" >
-        Consultar Aluno</button>              
+        Consultar Aluno</button>  
+
       <button type="submit" (click)="incluir()" class="btn btn-primary" [disabled]="!myForm.valid" >
         Incluir Aluno</button>
-        
+      
+
   </div>
   <app-cep></app-cep>
   
