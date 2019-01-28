@@ -17,20 +17,20 @@ class CreateAlunosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('data_nascimento');
-            $table->is_numeric('serie');
+            $table->integer('serie');
             $table->string('nome_mae');
             $table->string('cpf_mae');
-            $table->is_numeric('data_pagamento');
+            $table->integer('data_pagamento');
             $table->string('cep');
             $table->string('rua');
-            $table->is_numeric('numero');
+            $table->integer('numero');
             $table->string('complemento');
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
             $table->timestamps();
         });
-
+    }
 
     /**
      * Reverse the migrations.
